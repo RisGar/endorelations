@@ -88,50 +88,50 @@ main = hspec $ do
     it "returns True for an empty set" $
       symmetric ([] :: [(Int, Int)]) `shouldBe` True
 
-    describe "antisymmetric" $ do
-      it "returns True for a set with only one edge between two distinct nodes" $
-        antisymmetric ([(1, 2), (3, 4), (2, 3)] :: [(Int, Int)]) `shouldBe` True
+  describe "antisymmetric" $ do
+    it "returns True for a set with only one edge between two distinct nodes" $
+      antisymmetric ([(1, 2), (3, 4), (2, 3)] :: [(Int, Int)]) `shouldBe` True
 
-      it "returns True for a set with only loops" $
-        antisymmetric ([(1, 1), (2, 2)] :: [(Int, Int)]) `shouldBe` True
+    it "returns True for a set with only loops" $
+      antisymmetric ([(1, 1), (2, 2)] :: [(Int, Int)]) `shouldBe` True
 
-      it "returns True for a set with loops and only one edge between two distinct nodes" $
-        antisymmetric ([(1, 1), (2, 3), (3, 4), (1, 3)] :: [(Int, Int)]) `shouldBe` True
+    it "returns True for a set with loops and only one edge between two distinct nodes" $
+      antisymmetric ([(1, 1), (2, 3), (3, 4), (1, 3)] :: [(Int, Int)]) `shouldBe` True
 
-      it "returns False for a set with two edges between distinct nodes" $
-        antisymmetric ([(1, 2), (2, 1)] :: [(Int, Int)]) `shouldBe` False
+    it "returns False for a set with two edges between distinct nodes" $
+      antisymmetric ([(1, 2), (2, 1)] :: [(Int, Int)]) `shouldBe` False
 
-      it "returns True for an empty set" $
-        antisymmetric ([] :: [(Int, Int)]) `shouldBe` True
+    it "returns True for an empty set" $
+      antisymmetric ([] :: [(Int, Int)]) `shouldBe` True
 
-    describe "asymmetric" $ do
-      it "returns True for a set with only one edge between two distinct nodes" $
-        asymmetric ([(1, 2), (3, 4), (2, 3)] :: [(Int, Int)]) `shouldBe` True
+  describe "asymmetric" $ do
+    it "returns True for a set with only one edge between two distinct nodes" $
+      asymmetric ([(1, 2), (3, 4), (2, 3)] :: [(Int, Int)]) `shouldBe` True
 
-      it "returns False for a set with two edges between distinct nodes" $
-        asymmetric ([(1, 2), (2, 1), (4, 3)] :: [(Int, Int)]) `shouldBe` False
+    it "returns False for a set with two edges between distinct nodes" $
+      asymmetric ([(1, 2), (2, 1), (4, 3)] :: [(Int, Int)]) `shouldBe` False
 
-      it "returns False for a set with loops and only one edge between two distinct nodes" $
-        asymmetric ([(1, 1), (2, 3), (4, 3), (3, 3)] :: [(Int, Int)]) `shouldBe` False
+    it "returns False for a set with loops and only one edge between two distinct nodes" $
+      asymmetric ([(1, 1), (2, 3), (4, 3), (3, 3)] :: [(Int, Int)]) `shouldBe` False
 
-      it "returns False for a set with only loops" $
-        asymmetric ([(1, 1), (2, 2)] :: [(Int, Int)]) `shouldBe` False
+    it "returns False for a set with only loops" $
+      asymmetric ([(1, 1), (2, 2)] :: [(Int, Int)]) `shouldBe` False
 
-      it "returns True for an empty set" $
-        asymmetric ([] :: [(Int, Int)]) `shouldBe` True
+    it "returns True for an empty set" $
+      asymmetric ([] :: [(Int, Int)]) `shouldBe` True
 
-    describe "transitive" $ do
-      it "returns True for an empty set" $
-        transitive ([] :: [(Int, Int)]) `shouldBe` True
+  describe "transitive" $ do
+    it "returns True for an empty set" $
+      transitive ([] :: [(Int, Int)]) `shouldBe` True
 
-      it "returns True when there is an edge between two nodes that have two edges between them" $
-        transitive ([(1, 2), (2, 3), (1, 3)] :: [(Int, Int)]) `shouldBe` True
+    it "returns True when there is an edge between two nodes that have two edges between them" $
+      transitive ([(1, 2), (2, 3), (1, 3)] :: [(Int, Int)]) `shouldBe` True
 
-      it "returns False when there is no edge between two nodes that have two edges between them" $
-        transitive ([(1, 2), (2, 3)] :: [(Int, Int)]) `shouldBe` False
+    it "returns False when there is no edge between two nodes that have two edges between them" $
+      transitive ([(1, 2), (2, 3)] :: [(Int, Int)]) `shouldBe` False
 
-      it "returns False when there is only sometimes an edge between two nodes that have two edges between them" $
-        transitive ([(1, 2), (2, 3), (1, 3), (2, 4)] :: [(Int, Int)]) `shouldBe` False
+    it "returns False when there is only sometimes an edge between two nodes that have two edges between them" $
+      transitive ([(1, 2), (2, 3), (1, 3), (2, 4)] :: [(Int, Int)]) `shouldBe` False
 
-      it "returns True for an empty set" $
-        asymmetric ([] :: [(Int, Int)]) `shouldBe` True
+    it "returns True for an empty set" $
+      asymmetric ([] :: [(Int, Int)]) `shouldBe` True
